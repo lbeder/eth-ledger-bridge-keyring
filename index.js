@@ -71,6 +71,7 @@ class LedgerBridgeKeyring extends EventEmitter {
     // Reset HDKey if the path changes
     if (this.hdPath !== hdPath) {
       this.hdk = new HDKey()
+      this.accounts = []
     }
     this.hdPath = hdPath
   }
