@@ -106,7 +106,6 @@ class LedgerBridgeKeyring extends EventEmitter {
         .then(async (_) => {
           const from = this.unlockedAccount
           const to = from + n
-          this.accounts = []
           for (let i = from; i < to; i++) {
             let address
             if (this._isBIP44()) {
