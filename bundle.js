@@ -68,6 +68,7 @@ var LedgerBridge = function () {
         value: async function makeApp() {
             try {
                 this.transport = await _hwTransportU2f2.default.create();
+                this.transport.setExchangeTimeout(3 * 60 * 1000);
                 this.app = new _hwAppEth2.default(this.transport);
             } catch (e) {
                 console.log('LEDGER:::CREATE APP ERROR', e);
@@ -1294,7 +1295,7 @@ var Transport = function () {
     _classCallCheck(this, Transport);
 
     this.debug = global.__ledgerDebug || null;
-    this.exchangeTimeout = 180000;
+    this.exchangeTimeout = 30000;
     this._events = new _events3.default();
 
     this.send = function () {

@@ -39,6 +39,7 @@ export default class LedgerBridge {
     async makeApp () {
         try {
             this.transport = await TransportU2F.create()
+            this.transport.setExchangeTimeout(3 * 60 * 1000)
             this.app = new LedgerEth(this.transport)
         } catch (e) {
             console.log('LEDGER:::CREATE APP ERROR', e)
@@ -165,4 +166,3 @@ export default class LedgerBridge {
     }
 
 }
-
