@@ -1294,7 +1294,7 @@ var Transport = function () {
     _classCallCheck(this, Transport);
 
     this.debug = global.__ledgerDebug || null;
-    this.exchangeTimeout = 30000;
+    this.exchangeTimeout = 180000;
     this._events = new _events3.default();
 
     this.send = function () {
